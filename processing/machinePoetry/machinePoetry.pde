@@ -1,20 +1,21 @@
-
 void settings() {
-    fullScreen(P3D);
+    fullScreen();
 }
 
 // INITIALIZE
 void setup() {
-    canvas = createGraphics(displayWidth, displayHeight, P3D);
-    font = createFont("Medium", 32);
+    frameRate(0.15);
+    font = createFont("Medium.otf", width/50);
     textFont(font);
 }
 
 // CODE THAT RUNS FOREVER
 void draw() {
-    canvas.beginDraw();
-    canvas.background(0);
-    text("hello", mouseX, mouseY);
-    canvas.endDraw();
-
-}
+    background(0);
+    textAlign(CENTER);
+    fill(#28FE14);
+    int index = int(random(phrases.length));
+    for (int i = 0; i < phrases.length; i++) {
+        text(phrases[index], width/2, height/2);
+    }
+  }

@@ -1,0 +1,23 @@
+
+void settings() {
+    fullScreen();
+}
+
+// INITIALIZE
+void setup() {
+    font = createFont("Medium.otf", width/5);
+    textFont(font);
+    int index = int(random(phrases.length));
+}
+
+// CODE THAT RUNS FOREVER
+void draw() {
+  
+    background(0);
+    textAlign(CENTER);
+    fill(#28FE14);
+
+    for(int i = frameRate-59;) {
+
+    }
+}

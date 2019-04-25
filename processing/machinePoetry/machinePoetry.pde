@@ -4,7 +4,6 @@ void settings() {
 
 // INITIALIZE
 void setup() {
-    frameRate(0.5);
     font = createFont("Medium.otf", width/50);
     textFont(font);
 }
@@ -14,17 +13,23 @@ void draw() {
     background(0);
     textAlign(CENTER);
     fill(#28FE14);
-    int indexIndp = int(random(indp.length));
-    int indexStart = int(random(start.length));
-    int indexEnd = int(random(end.length));
+    text("WHAT ARE YOU? ENTER SINGLE WORD", width/2, height/3);
+    text(typing, width/2, height/2);
 
-    for (int i = 0; i < indp.length; i++) {
-        text(indp[indexIndp], width/2, height/3);
+    if (saved = typing) {
+        text("DO NOT TOUCH ME I AM WRITING POETRY", width/2, height/2);
+    } else {
+        typing = typing + key;
     }
-    for (int i = 0; i < start.length; i++) {
-        text(start[indexStart], width/2, height/2);
-    }
-    for (int i = 0; i < end.length; i++) {
-        text(end[indexEnd], width/2, height/1.5);
-    }
+}
+
+void keyPressed() {
+  if (key == '\n' ) {
+    saved = typing;
+    typing = "";
+//   } else if (key == BACKSPACE) {
+//       typing = typing.deleteCharAt(typing.length()-1);
+  } else {
+    typing = typing + key; 
   }
+}

@@ -6,7 +6,7 @@ void settings() {
 
 // INITIALIZE
 void setup() {
-  font = createFont("Light.otf", width/50);
+  font = createFont("OCRB.otf", width/50);
   textFont(font);
   textSize(92);
   textLeading(92);
@@ -32,8 +32,8 @@ void draw() {
       text("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", width/4, height/4, width/2, height/2);
     } else if (sec >= 6 && sec < 15) {
       text(standAlones[r].toUpperCase(), width/4, height/4, width/2, height/2);
-      text(inserts[r].toUpperCase(), width/4, height/4, width/2, height/2);
-      text(standAlones[r].toUpperCase(), width/4, height/4, width/2, height/2);
+      //text(inserts[r].toUpperCase(), width/4, height/4, width/2, height/2);
+      text(standAlones[rTwo].toUpperCase(), width/4, height/2, width/2, height/2);
     } else if (sec >= 15 && sec < 20) {
       text("YOU HAVE BECOME POETRY", width/2, height/2);
     } else if (sec >= 20) {
@@ -48,7 +48,8 @@ void keyPressed() {
     typing = "";
     pageIndex++;
     start = millis();
-    r = int(random(76));
+    r = int(random(57));
+    rTwo = int(random(57));
     // Need to figure out how to advance quickly
     //} else if (keyPressed && pageIndex == 2) {
     //  text("THANK YOU HAVE A NICE DAY", width/2, height/2);

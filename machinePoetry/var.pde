@@ -2,6 +2,7 @@ PFont font;
 
 int pageIndex = 1;
 int r;
+int rTwo;
 
 // VARIABLES FOR TYPING
 String typing = "";

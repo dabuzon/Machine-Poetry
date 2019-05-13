@@ -1,143 +1,56 @@
-String[] standAlones = {
-  "Don't love", 
-  "I was in love and in pain", 
-  "I am going to be snubbed", 
-  "I am too often calling out to the void", 
-  "People take its mantle", 
-  "And so I wished for it all", 
-  "and that was my fault", 
-  "Today I ask for rice and spice", 
-  "It’s unfortunate but it is", 
-  "life is now too tragic to have", 
-  "to be human", 
-  "throw that out the window", 
-  "How do I take care of myself", 
-  "Contrast creates form.", 
-  "A shadow contextualizes an object.", 
-  "I am interested in objects.", 
-  "I’ve fallen real hard this time", 
-  "a breath of heavy air", 
-  "A smell, a taste;", 
-  "the human limestone,", 
-  "Is that who you are?", 
-  "To all who took care of me", 
-  "To all who I wish took care of me", 
-  "Today (10/27) is a beautiful day", 
-  "What is it even that we want", 
-  "text back some people", 
-  "All fingers except for engagement", 
-  "They’re not all there for you", 
-  "Go out and have some fun;", 
-  "Grad students are our friendz", 
-  "I’m enjoying myself", 
-  "go out on a date,", 
-  "Here now so I can do better", 
-  "I want to learn and teach too late", 
-  "A bunch of hurt", 
-  "I’m in outsider", 
-  "Of concern and care", 
-  "A rush of melancholy sweeps through", 
-  "I am revisited", 
-  "I want to feel so grateful", 
-  "It’s good to know people", 
-  "Is idolatry a sin?", 
-  "All I want are mentors", 
-  "In love?", 
-  "And with that, the word", 
-  "And with that, the truth", 
-  "And with that, reality", 
-  "And yes, no one", 
-  "No time to be denied", 
-  "Least deserving, most receiving", 
-  "Kinda bored", 
-  "Why am I full of tears", 
-  "No one may mistreat me!", 
-  "Will grad school save you?", 
-  "How do I take care of myself", 
-  "I had no control"
-};
-
-String[] inserts = {
-  "Big fat crush", 
-  "I’m making myself believe", 
-  "A lot of love for someone", 
-  "who gives me a lot of stress", 
-  "It is a beautifully tragic thing", 
-  "but I think for good", 
-  "All I’ve could have been", 
-  "a way to describe one self", 
-  "I was only attracted to you", 
-  "because of the shadow you left behind.", 
-  "I think about all that it must have taken", 
-  "to get to where you are now.", 
-  "What compelled you towards love", 
-  "an existence that brings all the enthrall,", 
-  "and yet pushes me so slightly away.", 
-  "Like drinking lake water;", 
-  "not the best", 
-  "it won’t kill you that fast.", 
-  "What do we do to delve deeper", 
-  "than what is easy to say?", 
-  "and I’m reminded of __", 
-  "but this is you and this is new", 
-  "Oh yeah have to go", 
-  "Something as simple as", 
-  "considering the human condition", 
-  "What I do to keep this body", 
-  "in structure and from falling apart", 
-  "the terminal needs to be my friend,", 
-  "right now it's an acquaintance", 
-  "What if I had just gone", 
-  "to an art school", 
-  "with myself or with you,", 
-  "not even enough time to breathe", 
-  "and we receive all of this in life,", 
-  "all that we never foresaw,", 
-  "whether or not it is good or bad,", 
-  "within seconds when our words leave our mouth", 
-  "we inherit all that was contradictory", 
-  "to what we assume", 
-  "And so I wonder what it is", 
-  "I have this peculiar luck", 
-  "neither is good nor bad.", 
-  "A sort of good chance", 
-  "ends up always at odds with misfortune", 
-  "Is the quest for love", 
-  "hopelessly painful and often fatal?", 
-  "In lieu of a community", 
-  "we grow to make our own", 
-  "but I was decided right here", 
-  "even in the communities I belong to", 
-  "it feels there's too many things", 
-  "too many slack channels", 
-  "where we still don’t belong", 
-  "but instead I felt profit", 
-  "but you said “ya lol”", 
-  "Even in my pursuit", 
-  "so far there’s someone who doesn’t", 
-  "but no unfair nor agonizing pain", 
-  "I feel some melancholy", 
-  "because nothing in the world", 
-  "no matter what and it just happened", 
-  "because circumstance decided it so.", 
-  "Alignment of it all", 
-  "always been difficult and almost impossible.", 
-  "provided a fill of regret,", 
-  "Wait why do I care", 
-  "the eclipse doesn't mind me.", 
-  "for there is a hole in my chest anyways", 
-  "I can’t even imagine", 
-  "being remembered by you", 
-  "but now you’re having me remember you", 
-  "I have a lot of life to live", 
-  "so I'll be there", 
-  "I don’t want to dream or nightmare", 
-  "I can’t help but hurt", 
-  "Just what needs to be done", 
-  "That shit is insane", 
-  "A feeling of defeat", 
-  "a feeling of want", 
-  "Who am I being saved for", 
-  "For what I have given,", 
-  "do I deserve"
-};
+Don't love 
+I was in love and in pain 
+I am going to be snubbed 
+I am too often calling out to the void 
+People take its mantle 
+And so I wished for it all 
+and that was my fault 
+Today I ask for rice and spice 
+It’s unfortunate but it is 
+life is now too tragic to have 
+to be human 
+throw that out the window 
+How do I take care of myself 
+Contrast creates form. 
+A shadow contextualizes an object. 
+I am interested in objects. 
+I’ve fallen real hard this time 
+a breath of heavy air 
+A smell, a taste; 
+the human limestone, 
+Is that who you are? 
+To all who took care of me 
+To all who I wish took care of me 
+Today (10/27) is a beautiful day 
+What is it even that we want 
+text back some people 
+All fingers except for engagement 
+They’re not all there for you 
+Go out and have some fun; 
+Grad students are our friendz 
+I’m enjoying myself 
+go out on a date, 
+Here now so I can do better 
+I want to learn and teach too late 
+A bunch of hurt 
+I’m in outsider 
+Of concern and care 
+A rush of melancholy sweeps through 
+I am revisited 
+I want to feel so grateful 
+It’s good to know people 
+Is idolatry a sin? 
+All I want are mentors 
+In love? 
+And with that, the word 
+And with that, the truth 
+And with that, reality 
+And yes, no one 
+No time to be denied 
+Least deserving, most receiving 
+Kinda bored 
+Why am I full of tears 
+No one may mistreat me! 
+Will grad school save you? 
+How do I take care of myself 
+I had no control

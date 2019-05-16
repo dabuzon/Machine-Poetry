@@ -2,56 +2,47 @@ void settings() {
   fullScreen();
 }
 
-// INITIALIZE
 void setup() {
-  reg = createFont("book.ttf", width/50);
-  italic = createFont("italic.ttf", width/50);
+  font = createFont("OCRB.otf", width/50);
   standAlones = loadStrings("standAlones.txt");
   inserts = loadStrings("inserts.txt");
-  noCursor();
 
-  textFont(reg);
-  textSize(48);
+  textFont(font);
+  textSize(72);
+  textLeading(72);
 
   inputPoems = new StringList();
   inputMiddle = new StringList();
 }
 
-// CODE THAT RUNS FOREVER
 void draw() {
   background(0);
   textAlign(CENTER);
-  fill(255, 255, 0);
+  fill(#28FE14);
 
   if (pageIndex == 1) {
-    textFont(reg);
-    text("Will you let me write you poetry?", width/250, height/2.25, width, height/2);
-    textFont(italic);
-    text("Please enter a single word below", width/4, height/2, width/2, height/2);
-    text(typing + "_", width/2, height/1.5);
+    text("WHAT ARE YOU?", width/4, height/8, width/2, height/2);
+    text("ENTER A SINGLE WORD", width/4, height/5, width/2, height/2);
+    text(typing.toUpperCase(), width/2, height/1.5);
   } else if (pageIndex == 2) {
-    textFont(reg);
     // TIME STARTS
     int ms = millis() - start;
     int sec = ms/1000;
 
     if (sec < 3) {
-      if (inputPoems.size() >= 1) {
-        text("I will now write you a poem about " + "\"" + saved.toLowerCase() + "\"", width/4, height/2.25, width/2, height/2);
-      } else if (inputPoems.size() < 1) {
-        text("Sorry, I do not understand the word " + "\"" + saved.toLowerCase() +  "\"", width/4, height/2.25, width/2, height/2);
-        text("but I will write you a poem anyway", width/4, height/2, width/2, height/2);
-      }
+      text("DO NOT TOUCH ME", width/4, height/8, width/2, height/2);
+      text("I AM WRITING POETRY", width/4, height/5, width/2, height/2);
     } else if (sec >= 3 && sec < 6) {
       text("", width/4, height/4, width/2, height/2);
     } else if (sec >= 6 && sec < 15) {
-      textFont(italic);
-      text(inputPoems.get(r), width/4, height/2.25, width/2, height/2);
-      text(inserts[rIn], width/4, height/2, width/2, height/2);
-      text(inputPoems.get(rTwo), width/4, height/1.8, width/2, height/2);
+      text(inputPoems.get(r).toUpperCase(), width/4, height/6, width/2, height/2);
+      text(inserts[rIn].toUpperCase(), width/4, height/2.5, width/2, height/2);
+      text(inputPoems.get(rTwo).toUpperCase(), width/4, height/1.5, width/2, height/2);
     } else if (sec >= 15 && sec < 20) {
-      textFont(reg);
-      text("Did you enjoy my poetry?", width/2, height/2);
+      if (inputPoems.size() < 1) {
+      } else {
+      }
+      text("YOU HAVE BECOME POETRY", width/2, height/2.5);
     } else if (sec >= 20) {
       pageIndex--;
     }
@@ -108,7 +99,6 @@ void keyPressed() {
         break;
       }
     }
-    //println(inputPoems);
   } else if (key >= 65 && key <= 90 || key >= 97 && key <= 122) {
     typing = typing + key;
   } else if (key == BACKSPACE) {

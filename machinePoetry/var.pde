@@ -1,10 +1,13 @@
-PFont font;
+PFont reg;
+PFont italic;
 
 StringList inputPoems;
+StringList inputMiddle;
 
 int pageIndex = 1;
 int r;
 int rTwo;
+int rIn;
 
 String[] standAlones;
 String[] inserts;

@@ -8,7 +8,6 @@ void setup() {
   italic = createFont("italic.ttf", width/50);
   standAlones = loadStrings("standAlones.txt");
   inserts = loadStrings("inserts.txt");
-  noCursor();
 
   textFont(reg);
   textSize(48);
@@ -25,7 +24,7 @@ void draw() {
 
   if (pageIndex == 1) {
     textFont(reg);
-    text("Will you let me write you poetry?", width/250, height/2.25, width, height/2);
+    text("What are you?", width/4, height/2.25, width/2, height/2);
     textFont(italic);
     text("Please enter a single word below", width/4, height/2, width/2, height/2);
     text(typing + "_", width/2, height/1.5);
@@ -37,21 +36,21 @@ void draw() {
 
     if (sec < 3) {
       if (inputPoems.size() >= 1) {
-        text("I will now write you a poem about " + "\"" + saved.toLowerCase() + "\"", width/4, height/2.25, width/2, height/2);
+        text("I will now write you a poem", width/4, height/2.25, width/2, height/2);
       } else if (inputPoems.size() < 1) {
-        text("Sorry, I do not understand the word " + "\"" + saved.toLowerCase() +  "\"", width/4, height/2.25, width/2, height/2);
-        text("but I will write you a poem anyway", width/4, height/2, width/2, height/2);
+        text("I do not understand the word " + "\"" + typing +  "\"", width/4, height/2.25, width/2, height/2);
       }
     } else if (sec >= 3 && sec < 6) {
       text("", width/4, height/4, width/2, height/2);
     } else if (sec >= 6 && sec < 15) {
-      textFont(italic);
-      text(inputPoems.get(r), width/4, height/2.25, width/2, height/2);
-      text(inserts[rIn], width/4, height/2, width/2, height/2);
-      text(inputPoems.get(rTwo), width/4, height/1.8, width/2, height/2);
+      text(inputPoems.get(r).(), width/4, height/6, width/2, height/2);
+      text(inserts[rIn].toUpperCase(), width/4, height/2.5, width/2, height/2);
+      text(inputPoems.get(rTwo).toUpperCase(), width/4, height/1.5, width/2, height/2);
     } else if (sec >= 15 && sec < 20) {
-      textFont(reg);
-      text("Did you enjoy my poetry?", width/2, height/2);
+      if (inputPoems.size() < 1) {
+      } else {
+      }
+      text("You have become poetry", width/2, height/2.5);
     } else if (sec >= 20) {
       pageIndex--;
     }
@@ -114,4 +113,5 @@ void keyPressed() {
   } else if (key == BACKSPACE) {
     typing = typing.substring(0, typing.length() - 1);
   }
+  println(saved);
 }

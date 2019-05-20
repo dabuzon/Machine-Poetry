@@ -12,6 +12,8 @@ int rIn;
 String[] standAlones;
 String[] inserts;
 
+Boolean isInStandAlones = false;
+
 // VARIABLES FOR TYPING
 String typing = "";
 String saved = "";

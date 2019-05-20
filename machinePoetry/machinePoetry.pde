@@ -47,13 +47,15 @@ void draw() {
     } else if (sec >= 6 && sec < 15) {
       textFont(italic);
       text(inputPoems.get(r), width/4, height/2.25, width/2, height/2);
-      text(inserts[rIn], width/4, height/2, width/2, height/2);
+      text(inputMiddle.get(rIn), width/4, height/2, width/2, height/2);
       text(inputPoems.get(rTwo), width/4, height/1.8, width/2, height/2);
     } else if (sec >= 15 && sec < 20) {
       textFont(reg);
       text("Did you enjoy my poetry?", width/2, height/2);
     } else if (sec >= 20) {
       pageIndex--;
+      inputPoems.clear();
+      inputMiddle.clear();
     }
   };
 }
@@ -77,28 +79,35 @@ void keyPressed() {
         //println(word);
         if (saved.equals(word)) {
           inputPoems.append(line);
+          // why is this appending multiple times
+          inputMiddle.append(inserts);
           break;
-        } else if (inputPoems.size() < 1) {
-          // inputPoems is just the whole array
-
-          // this line is just temporary. Need to write the actual alternative.
-          //inputPoems.append(standAlones);
-          //break;
-          //for (int n = 0; n < inserts.length; n++) {
-          //  String iLine = inserts[n];
-          //  String[] iCheck = split(iLine, " ");
-
-          //  for (int o = 0; o < iCheck.length; o++) {
-          //    String iWord = iCheck[o];
-          //    iWord = iWord.toUpperCase();
-          //    if (saved.equals(iWord)) {
-
-          //    }
-          //  }
-          //}
         }
       }
     }
+
+    if (inputPoems.size() < 1) {
+      inputPoems.append(standAlones);
+      for (int n = 0; n < inserts.length; n++) {
+        String iLine = inserts[n];
+        String[] iCheck = split(iLine, " ");
+
+        for (int o = 0; o < iCheck.length; o++) {
+          String iWord = iCheck[o];
+          iWord = iWord.toUpperCase();
+          if (saved.equals(iWord)) {
+            inputMiddle.append(iLine);
+            break;
+          } else {
+            inputMiddle.append(inserts);
+            break;
+          }
+        }
+      }
+    }
+
+    println(inputPoems);
+    println(inputMiddle);
 
     rIn = int(random(inserts.length));
     r = int(random(inputPoems.size()));

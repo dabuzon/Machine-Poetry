@@ -22,6 +22,8 @@ String[] interject = {
   "Is that so?"
 };
 
+Boolean noMatch = false;
+
 // VARIABLES FOR TYPING
 String typing = "";
 String saved = "";

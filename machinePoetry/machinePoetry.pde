@@ -35,13 +35,16 @@ void draw() {
     int sec = ms/1000;
 
     if (sec < 3) {
-      text(interject[rInter], width/2, height/2);
-    } else if (sec < 6) {
-      if (inputPoems.size() >= 1) {
+      if (noMatch == false) {
+        text(interject[rInter], width/2, height/2);
+      } else if (noMatch) {
+        text("Sorry, I do not understand the word " + "\"" + saved.toLowerCase() +  "\"", width/2, height/2);
+      }
+    } else if (sec >= 3 && sec < 6) {
+      if (noMatch == false) {
         text("Then I will write a poem about " + "\"" + saved.toLowerCase() + ".\"", width/2, height/2);
-      } else if (inputPoems.size() >= 84 && inputMiddle.size() >= 59) {
-        text("Sorry, I do not understand the word " + "\"" + saved.toLowerCase() +  "\"", width/2, height/2.85);
-        text("but I will write you a poem anyway", width/2, height/2.25);
+      } else if (noMatch) {
+        text("but I will write you a poem anyway", width/2, height/2);
       }
     } else if (sec >= 6 && sec < 9) {
       text("", width/2, height/4);
@@ -57,6 +60,7 @@ void draw() {
       pageIndex--;
       inputPoems.clear();
       inputMiddle.clear();
+      noMatch = false;
     }
   };
 }
@@ -69,10 +73,6 @@ void keyPressed() {
     pageIndex++;
     start = millis();
 
-    inputMiddle.clear();
-
-    //boolean foundonce = false;
-
     for (int i = 0; i < standAlones.length; i++) {
       String line = standAlones[i];
       //String stLine = strip(line);
@@ -82,19 +82,16 @@ void keyPressed() {
         String word = check[j];
         word = word.toUpperCase();
         if (saved.equals(word)) {
-          //inputPoems.append(line);
-          // why is this appending multiple times
+          inputPoems.append(line);
           inputMiddle.append(inserts);
-          println(inputMiddle);
-          println(word);
-          //foundonce = true;
+          //println(inputMiddle);
+          //println(word);
           break;
         }
       }
     }
 
     if (inputPoems.size() < 1) {
-      // add boolean
       inputPoems.append(standAlones);
       for (int n = 0; n < inserts.length; n++) {
         String iLine = inserts[n];
@@ -106,16 +103,16 @@ void keyPressed() {
           if (saved.equals(iWord)) {
             inputMiddle.append(iLine);
             break;
-          } else {
-            inputMiddle.append(inserts);
-            break;
           }
         }
       }
     }
 
-    println(inputPoems);
-    println(inputMiddle); // too long
+    if (inputMiddle.size() < 1) {
+      inputMiddle.append(inserts);
+      noMatch = true;
+      println(noMatch);
+    }
 
     rInter = int(random(interject.length));
     rIn = int(random(inserts.length));
@@ -126,7 +123,6 @@ void keyPressed() {
         break;
       }
     }
-    //println(inputPoems);
   } else if (key >= 65 && key <= 90 || key >= 97 && key <= 122) {
     typing = typing + key;
   } else if (key == BACKSPACE && typing.length() >= 1) {

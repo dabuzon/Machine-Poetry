@@ -8,11 +8,19 @@ int pageIndex = 1;
 int r;
 int rTwo;
 int rIn;
+int rInter;
 
 String[] standAlones;
 String[] inserts;
 
-Boolean isInStandAlones = false;
+String[] interject = {
+  "Interesting.",
+  "Very well.",
+  "I see.",
+  "Is that your word?",
+  "This is new",
+  "Is that so?"
+};
 
 // VARIABLES FOR TYPING
 String typing = "";

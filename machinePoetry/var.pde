@@ -23,6 +23,7 @@ String[] interject = {
 };
 
 Boolean noMatch = false;
+Boolean firstCheck = false;
 
 // VARIABLES FOR TYPING
 String typing = "";

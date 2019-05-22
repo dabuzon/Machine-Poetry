@@ -38,13 +38,13 @@ void draw() {
       if (noMatch == false) {
         text(interject[rInter], width/2, height/2);
       } else if (noMatch) {
-        text("Sorry, I do not understand the word " + "\"" + saved.toLowerCase() +  "\"", width/2, height/2);
+        text("I do not understand the word " + "\"" + saved.toLowerCase() +  ".\"", width/2, height/2);
       }
     } else if (sec >= 3 && sec < 6) {
       if (noMatch == false) {
-        text("Then I will write a poem about " + "\"" + saved.toLowerCase() + ".\"", width/2, height/2);
+        text("I will write a poem about " + "\"" + saved.toLowerCase() + ".\"", width/2, height/2);
       } else if (noMatch) {
-        text("but I will write you a poem anyway", width/2, height/2);
+        text("I will write a poem anyway.", width/2, height/2);
       }
     } else if (sec >= 6 && sec < 9) {
       text("", width/2, height/4);
@@ -83,9 +83,6 @@ void keyPressed() {
         word = word.toUpperCase();
         if (saved.equals(word)) {
           inputPoems.append(line);
-          inputMiddle.append(inserts);
-          //println(inputMiddle);
-          //println(word);
           break;
         }
       }
@@ -93,6 +90,8 @@ void keyPressed() {
 
     if (inputPoems.size() < 1) {
       inputPoems.append(standAlones);
+      
+      // This block of code is not working for the word "enthrall"?
       for (int n = 0; n < inserts.length; n++) {
         String iLine = inserts[n];
         String[] iCheck = split(iLine, " ");
@@ -106,13 +105,18 @@ void keyPressed() {
           }
         }
       }
+
+      if (inputMiddle.size() < 1) {
+        noMatch = true;
+        println(noMatch);
+        inputMiddle.append(inserts);
+      }
+    } else if (inputPoems.size() >= 1) {
+      inputMiddle.append(inserts);
     }
 
-    if (inputMiddle.size() < 1) {
-      inputMiddle.append(inserts);
-      noMatch = true;
-      println(noMatch);
-    }
+    println(inputPoems);
+    println(inputMiddle);
 
     rInter = int(random(interject.length));
     rIn = int(random(inserts.length));
@@ -123,7 +127,7 @@ void keyPressed() {
         break;
       }
     }
-  } else if (key >= 65 && key <= 90 || key >= 97 && key <= 122) {
+  } else if (key >= 65 && key <= 90 || key >= 97 && key <= 122 && pageIndex == 1) {
     typing = typing + key;
   } else if (key == BACKSPACE && typing.length() >= 1) {
     typing = typing.substring(0, typing.length() - 1);

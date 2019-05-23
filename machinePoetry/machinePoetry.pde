@@ -51,8 +51,8 @@ void draw() {
     } else if (sec >= 9 && sec < 18) {
       textFont(italic);
       text(inputPoems.get(r), width/2, height/2.85);
-      text(inputMiddle.get(rIn), width/2, height/2.25);
-      text(inputPoems.get(rTwo), width/2, height/1.885);
+      text(inputMiddle.get(rIn), width/2, height/2);
+      text(inputPoems.get(rTwo), width/2, height/1.5325);
     } else if (sec >= 18 && sec < 23) {
       textFont(reg);
       text("And with that, it is poetry.", width/2, height/2);
@@ -90,14 +90,15 @@ void keyPressed() {
 
     if (inputPoems.size() < 1) {
       inputPoems.append(standAlones);
-      
-      // This block of code is not working for the word "enthrall"?
+
       for (int n = 0; n < inserts.length; n++) {
         String iLine = inserts[n];
         String[] iCheck = split(iLine, " ");
 
         for (int o = 0; o < iCheck.length; o++) {
           String iWord = iCheck[o];
+          // is it removing the commas that make it an array? feels like its recreating a string
+          iWord = iWord.replaceAll("[^a-zA-Z0-9]","");
           iWord = iWord.toUpperCase();
           if (saved.equals(iWord)) {
             inputMiddle.append(iLine);
@@ -108,18 +109,14 @@ void keyPressed() {
 
       if (inputMiddle.size() < 1) {
         noMatch = true;
-        println(noMatch);
         inputMiddle.append(inserts);
       }
     } else if (inputPoems.size() >= 1) {
       inputMiddle.append(inserts);
     }
 
-    println(inputPoems);
-    println(inputMiddle);
-
     rInter = int(random(interject.length));
-    rIn = int(random(inserts.length));
+    rIn = int(random(inputMiddle.size()));
     r = int(random(inputPoems.size()));
     for (int k = 0; k < 5; k++) {
       rTwo = int(random(inputPoems.size()));
@@ -128,7 +125,7 @@ void keyPressed() {
       }
     }
   } else if (key >= 65 && key <= 90 || key >= 97 && key <= 122 && pageIndex == 1) {
-    typing = typing + key;
+    typing += key;
   } else if (key == BACKSPACE && typing.length() >= 1) {
     typing = typing.substring(0, typing.length() - 1);
   }

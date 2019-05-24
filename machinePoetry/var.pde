@@ -22,6 +22,8 @@ String[] interject = {
   "Is that so?"
 };
 
+String lines;
+
 Boolean noMatch = false;
 Boolean firstCheck = false;
 

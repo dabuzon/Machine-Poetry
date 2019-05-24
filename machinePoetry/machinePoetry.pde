@@ -49,10 +49,17 @@ void draw() {
     } else if (sec >= 6 && sec < 9) {
       text("", width/2, height/4);
     } else if (sec >= 9 && sec < 18) {
+      String a = inputPoems.get(r);
+      String b = inputMiddle.get(rIn);
+      String c = inputPoems.get(rTwo);
+      
       textFont(italic);
-      text(inputPoems.get(r), width/2, height/2.85);
-      text(inputMiddle.get(rIn), width/2, height/2);
-      text(inputPoems.get(rTwo), width/2, height/1.5325);
+      text(a, width/2, height/2.85);
+      text(b, width/2, height/2);
+      text(c, width/2, height/1.5325);
+      
+      lines = a + b + c;
+      printer(lines);
     } else if (sec >= 18 && sec < 23) {
       textFont(reg);
       text("And with that, it is poetry.", width/2, height/2);

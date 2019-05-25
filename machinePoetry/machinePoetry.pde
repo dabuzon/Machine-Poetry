@@ -52,12 +52,12 @@ void draw() {
       String a = inputPoems.get(r);
       String b = inputMiddle.get(rIn);
       String c = inputPoems.get(rTwo);
-      
+
       textFont(italic);
       text(a, width/2, height/2.85);
       text(b, width/2, height/2);
       text(c, width/2, height/1.5325);
-      
+
       lines = a + b + c;
       printer(lines);
     } else if (sec >= 18 && sec < 23) {
@@ -82,7 +82,6 @@ void keyPressed() {
 
     for (int i = 0; i < standAlones.length; i++) {
       String line = standAlones[i];
-      //String stLine = strip(line);
       String[] check = split(line, " ");
 
       for (int j = 0; j < check.length; j++) {
@@ -104,8 +103,7 @@ void keyPressed() {
 
         for (int o = 0; o < iCheck.length; o++) {
           String iWord = iCheck[o];
-          // is it removing the commas that make it an array? feels like its recreating a string
-          iWord = iWord.replaceAll("[^a-zA-Z0-9]","");
+          iWord = iWord.replaceAll("[^a-zA-Z0-9]", "");
           iWord = iWord.toUpperCase();
           if (saved.equals(iWord)) {
             inputMiddle.append(iLine);

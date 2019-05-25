@@ -1,36 +1,22 @@
-PFont reg;
-PFont italic;
+PFont reg, italic;
 
-StringList inputPoems;
-StringList inputMiddle;
+Boolean noMatch = false;
 
 int pageIndex = 1;
-int r;
-int rTwo;
-int rIn;
-int rInter;
+int r, rTwo, rIn, rInter, start;
 
-String[] standAlones;
-String[] inserts;
+StringList inputPoems, inputMiddle;
 
+String[] standAlones, inserts;
 String[] interject = {
   "Interesting.",
   "Very well.",
   "I see.",
   "Is that your word?",
-  "This is new",
+  "This is new.",
   "Is that so?"
 };
 
 String lines;
 
-Boolean noMatch = false;
-Boolean firstCheck = false;
-
-// VARIABLES FOR TYPING
-String typing = "";
-String saved = "";
-
-// VARIABLES FOR TIMER
-int start;
-int startAgain;
+String saved, typing = "";

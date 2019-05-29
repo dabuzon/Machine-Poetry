@@ -23,6 +23,7 @@ void draw() {
   fill(255, 255, 0);
 
   if (pageIndex == 1) {
+    printerOn = false;
     textFont(reg);
     text("If you enter a word, I will write a poem.", width/250, height/2.85, width, height/2);
     textFont(italic);
@@ -35,16 +36,12 @@ void draw() {
     int sec = ms/1000;
 
     if (sec < 3) {
-      if (noMatch == false) {
-        text(interject[rInter], width/2, height/2);
-      } else if (noMatch) {
-        text("I do not understand the word " + "\"" + saved.toLowerCase() +  ".\"", width/2, height/2);
-      }
+      text(interject[rInter], width/2, height/2);
     } else if (sec >= 3 && sec < 6) {
       if (noMatch == false) {
         text("I will write a poem about " + "\"" + saved.toLowerCase() + ".\"", width/2, height/2);
       } else if (noMatch) {
-        text("I will write a poem anyway.", width/2, height/2);
+        text("I will try to write a poem about " + "\"" + saved.toLowerCase() +  ".\"", width/2, height/2);
       }
     } else if (sec >= 6 && sec < 9) {
       text("", width/2, height/4);
@@ -58,8 +55,11 @@ void draw() {
       text(b, width/2, height/2);
       text(c, width/2, height/1.5325);
 
-      lines = a + b + c;
-      printer(lines);
+      if (printerOn == false) {
+        lines = a + b + c;
+        printer(lines);
+        printerOn = true;
+      }
     } else if (sec >= 18 && sec < 23) {
       textFont(reg);
       text("And with that, it is poetry.", width/2, height/2);

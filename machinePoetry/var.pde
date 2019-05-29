@@ -1,6 +1,7 @@
 PFont reg, italic;
 
 Boolean noMatch = false;
+Boolean printerOn;
 
 int pageIndex = 1;
 int r, rTwo, rIn, rInter, start;

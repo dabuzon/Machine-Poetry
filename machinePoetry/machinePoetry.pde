@@ -52,15 +52,21 @@ void draw() {
 
       textFont(italic);
       text(a, width/2, height/2.85);
-      text(b, width/2, height/2);
-      text(c, width/2, height/1.5325);
+
+      if (sec >= 12) {
+        text(b, width/2, height/2);
+      }
+      if (sec >= 15) {
+        text(c, width/2, height/1.5325);
+      }
 
       if (printerOn == false) {
-        lines = a + b + c;
-        printer(lines);
+        printer(a);
+        printer(b);
+        printer(c);
         printerOn = true;
       }
-    } else if (sec >= 18 && sec < 23) {
+    } else if (sec >= 19 && sec < 23) {
       textFont(reg);
       text("And with that, it is poetry.", width/2, height/2);
     } else if (sec >= 23) {

@@ -1,9 +1,17 @@
+int NUM_COLUMNS = 80;
+
 void printer (String poem) {
-  String command = poem + char(27) + char(125) + char(0);
+  String command = ""; 
+  //add a line of spaces to make printer work
+  for (int i = 0; i < NUM_COLUMNS; i++) {
+    command += ' ';
+  }
+  command += poem;
+  command += '\n';
 
   try {
     Process p = Runtime.getRuntime().exec("lp -d okidata -o raw");
-    //Process p = Runtime.getRuntime().exec("grep aaa");
+    //Process p = Runtime.getRuntime().exec("grep }");
     InputStream in = p.getInputStream();
     InputStream err = p.getErrorStream();
     OutputStream out = p.getOutputStream();
